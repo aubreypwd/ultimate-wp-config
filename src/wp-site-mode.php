@@ -48,6 +48,12 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 			// Force the URL we want (rather than what's in the DB).
 			define( 'WP_HOME', "https://{$host}" ); // Updated on Oct 25, 2022
 			define( 'WP_SITEURL', WP_HOME );
+
+			$_SERVER['HTTP_HOST'] = $host;
+			$_SERVER['HTTP_X_ORIGINAL_HOST'] = $host;
+			$_SERVER['HTTP_X_FORWARDED_HOST'] = $host;
 		}
+
+		unset( $host );
 	}
 }
