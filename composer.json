@@ -2,7 +2,7 @@
     "name": "aubreypwd/ultimate-wp-config",
     "description": "CONSTANT controlled ultimate wp-config.php enhancements meant mostly for LocalWP development.",
     "type": "project",
-    "license": ["proprietary"],
+    "license": ["MIT"],
     "autoload": {
         "files" : [
             "src/autoload.php"
