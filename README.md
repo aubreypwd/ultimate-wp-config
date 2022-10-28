@@ -4,12 +4,16 @@ A re-usable and flaggable config file for WordPress, mostly controlled by CONSTA
 
 _I mostly use this in my own local development environments._
 
+---------------------------------
+
 ## Installation
 
 ```bash
 composer config "repositories.aubreypwd/ultimate-wp-config" git git@github.com:aubreypwd/ultimate-wp-config.git
 composer require aubreypwd/ultimate-wp-config:dev-main@dev --dev
 ```
+
+---------------------------------
 
 ## Usage
 
@@ -22,9 +26,13 @@ require_once  __DIR__ . '/vendor/autoload.php';
 ...after the `/* That's all, stop editing! Happy publishing. */` bit in `wp-config.php`
  but before `/** Absolute path to the WordPress directory. */`.
 
+---------------------------------
+
 ### Core
 
 - Use `define( 'LOCAL_HOST' )` to set your host to something other than `localhost`
+
+---------------------------------
 
 ### LocalWP & WP-CLI
 
@@ -54,6 +62,8 @@ wp config set DB_HOST_NO_SOCKET true --raw
 
 ...to bypass.
 
+---------------------------------
+
 ### Multisite
 
 When `WP_ALLOW_MULTISITE` is set to `true`, multisite will automatically be enabled for a multisite DB.
@@ -65,6 +75,8 @@ define( 'WP_ALLOW_MULTISITE', true|false );
 ```bash
 wp config set WP_ALLOW_MULTISITE true|false --raw
 ```
+
+---------------------------------
 
 ### AffilaiteWP License
 
@@ -88,6 +100,8 @@ wp config set AFFWP_LICENSE "pro|personal"
 ```
 
 - Use `wp config delete AFFWP_LICENSE` to use your own.
+
+---------------------------------
 
 ### LocalWP Development & Live Links
 
