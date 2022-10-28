@@ -1,0 +1,19 @@
+{
+    "name": "aubreypwd/ultimate-wp-config",
+    "description": "An ultimate wp-config.php enhancement.",
+    "type": "project",
+    "license": ["proprietary"],
+    "autoload": {
+        "files" : [
+            "src/autoload.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Aubrey Portwood",
+            "email": "code@aubreypwd.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
