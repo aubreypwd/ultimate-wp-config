@@ -1,6 +1,6 @@
 {
     "name": "aubreypwd/ultimate-wp-config",
-    "description": "An ultimate wp-config.php enhancement.",
+    "description": "CONSTANT controlled ultimate wp-config.php enhancements meant mostly for LocalWP development.",
     "type": "project",
     "license": ["proprietary"],
     "autoload": {
