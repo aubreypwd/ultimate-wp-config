@@ -22,7 +22,7 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 
 	// Publically (using Live Links in LocalWP).
 	if (
-		defined( 'LIVE' ) && LIVE && // $> wp config set live true --raw
+		defined( 'LIVE' ) && true === LIVE && // $> wp config set live true --raw
 		defined( 'LIVE_USERNAME' ) &&
 		defined( 'LIVE_PASSWORD' ) &&
 		defined( 'LIVE_HOST' )
@@ -49,6 +49,7 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 			define( 'WP_HOME', "https://{$host}" ); // Updated on Oct 25, 2022
 			define( 'WP_SITEURL', WP_HOME );
 
+			// Force live links to go local.
 			$_SERVER['HTTP_HOST'] = $host;
 			$_SERVER['HTTP_X_ORIGINAL_HOST'] = $host;
 			$_SERVER['HTTP_X_FORWARDED_HOST'] = $host;

@@ -7,7 +7,7 @@ _I mostly use this in my own local development environments._
 ## Installation
 
 ```bash
-composer config repositories.ultimate-wp-config git git@github.com:aubreypwd/ultimate-wp-config.git
+composer config "repositories.aubreypwd/ultimate-wp-config" git git@github.com:aubreypwd/ultimate-wp-config.git
 composer require aubreypwd/ultimate-wp-config:dev-main@dev --dev
 ```
 
