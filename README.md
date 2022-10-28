@@ -1,8 +1,10 @@
 # `aubreypwd/ultimate-wp-config`
 
-A re-usable and flaggable config file for WordPress, mostly controlled by CONSTANTS you can change using `wp config set`.
+A PHP CONSTANT controled wp-config enhancement for WordPress (and various plugin) development in [LocalWP](https://localwp.com/).
 
 _I mostly use this in my own local development environments._
+
+You can easily turn things on and off (and configure them) using `wp config set|delete`.
 
 ---------------------------------
 
