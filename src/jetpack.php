@@ -8,7 +8,7 @@ if (
 ) {
 
 	// These should keep Jetpack from connecting to wordpress.com.
-	define( 'JETPACK_DEV_DEBUG', true );
-	define( 'WP_ENVIRONMENT_TYPE', 'development' );
-	define( 'WP_LOCAL_DEV', true );
+	@define( 'JETPACK_DEV_DEBUG', true );
+	@define( 'WP_ENVIRONMENT_TYPE', 'development' );
+	@define( 'WP_LOCAL_DEV', true );
 }
