@@ -124,3 +124,13 @@ Use `wp config set LIVE false --raw` to turn off live links mode.
 This is on by default, set `define( 'DISABLE_JETPACK_PROTECTION', true )` to bypass this protection.
 
 When enabled, it should keep JetPack from connecting to wordpress.com or VIP services.
+
+--------------------------------------
+
+### Disable Email
+
+Email is disabled by default, unless you set:
+
+```php
+define( 'MAIL', true );
+```
