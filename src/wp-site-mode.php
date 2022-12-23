@@ -12,7 +12,7 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 
 	@define( 'MULTISITE', true );
 	@define( 'SUBDOMAIN_INSTALL', false );
-	@define( 'DOMAIN_CURRENT_SITE', defined( 'LOCAL_HOST' ) ? LOCAL_HOST : 'localhost' ); // This has to match what's in the DB.
+	@define( 'DOMAIN_CURRENT_SITE', defined( 'HOST' ) ? HOST : 'localhost' ); // This has to match what's in the DB.
 	@define( 'PATH_CURRENT_SITE', $base );
 	@define( 'SITE_ID_CURRENT_SITE', 1 );
 	@define( 'BLOG_ID_CURRENT_SITE', 1 );
@@ -41,7 +41,7 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 	// Locally.
 	} else {
 
-		$host = defined( 'LOCAL_HOST' ) ? LOCAL_HOST : '';
+		$host = defined( 'HOST' ) ? HOST : '';
 
 		if ( ! empty( $host ) ) {
 

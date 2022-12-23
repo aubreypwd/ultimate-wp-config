@@ -31,7 +31,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 
 ### Core
 
-- Use `define( 'LOCAL_HOST' )` to set your host to something other than `localhost`
+- Use `define( 'HOST' )` to set your host to something other than `localhost`
 
 ---------------------------------
 
