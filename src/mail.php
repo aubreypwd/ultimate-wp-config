@@ -1,11 +1,10 @@
 <?php
 
 // Disabled by default, use define( 'MAIL', true ); to enable.
-if ( defined( 'MAIL' ) && true === MAIL ) {
-	return; // They want mail on.
-}
+if ( ! defined( 'MAIL' ) || false === MAIL ) {
 
-// Don't send mail by default.
-function wp_mail() {
-	return true;
+	// Don't send mail by default.
+	function wp_mail() {
+		return true;
+	}
 }

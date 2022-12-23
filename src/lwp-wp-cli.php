@@ -1,9 +1,5 @@
 <?php
 
-if ( ! defined( 'DB_HOST_NO_SOCKET' ) ) {
-	return;
-}
-
 // Better WP-CLI Support for LocalWP.
 if (
 	file_exists( __DIR__ . '/../../../../local-phpinfo.php' ) && // Only LocalWP puts this here.
