@@ -1,10 +1,8 @@
 # `aubreypwd/ultimate-wp-config`
 
-A PHP CONSTANT controled wp-config enhancement for WordPress (and various plugin) development in [LocalWP](https://localwp.com/).
+A PHP CONSTANT controled wp-config enhancement for WordPress local development.
 
-_I mostly use this in my own local development environments._
-
-You can easily turn things on and off (and configure them) using `wp config set|delete`.
+You can easily turn things on and off (and configure them) using `wp config set|delete` or by editing CONSTANTS directly in your `wp-config.php` file.
 
 ---------------------------------
 
@@ -31,13 +29,13 @@ require_once  __DIR__ . '/vendor/autoload.php';
 
 ### Core
 
-- Use `define( 'HOST' )` to set your host to something other than `localhost`
+- Use `define( 'HOST' )` to set your host to something other than what's defined in the database. Note, only works for single site!
 
 ---------------------------------
 
 ### LocalWP & WP-CLI
 
-To make WP-CLI work better, we suggest using a configuration like this:
+To make WP-CLI work better with LocalWP, we suggest using a configuration like this:
 
 ```php
 
@@ -49,19 +47,19 @@ define( 'DB_HOST', 'localhost:/Users/aubreypwd/Library/Application Support/Local
 
 ```
 
+And so when you install this, we will bark at you to set it like this.
+
 A direct link to the `.sock` file on your system will make sure WP-CLI works better. When you run WP-CLI commands you might get an error to run a command to set this:
 
 ```bash
 wp config set DB_HOST 'localhost:/path/to/file.sock'
 ```
 
-If you don't want to go this route, simply use:
+If you want the barking to stop, set:
 
 ```bash
 wp config set LWP_DB_HOST_NO_SOCKET true --raw
 ```
-
-...to bypass.
 
 ---------------------------------
 
@@ -80,6 +78,8 @@ wp config set WP_ALLOW_MULTISITE true|false --raw
 ---------------------------------
 
 ### AffilaiteWP License
+
+This is specific to use with [AffiliateWP](https://affiliatewp.com), a plugin I work on.
 
 To use the below easily, first you have to set your Pro and Personal licenses:
 
@@ -133,4 +133,8 @@ Email is disabled by default, unless you set:
 
 ```php
 define( 'MAIL', true );
+```
+
+```bash
+wp config set MAIL true --raw
 ```
