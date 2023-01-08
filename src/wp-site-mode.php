@@ -22,15 +22,15 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 
 	// Publically (using Live Links in LocalWP).
 	if (
-		defined( 'LIVE' ) && true === LIVE && // $> wp config set live true --raw
-		defined( 'LIVE_USERNAME' ) &&
-		defined( 'LIVE_PASSWORD' ) &&
-		defined( 'LIVE_HOST' )
+		defined( 'LWP_LIVE' ) && true === LWP_LIVE && // $> wp config set live true --raw
+		defined( 'LWP_LIVE_USERNAME' ) &&
+		defined( 'LWP_LIVE_PASSWORD' ) &&
+		defined( 'LWP_LIVE_HOST' )
 	) {
 
-		$un   = LIVE_USERNAME;
-		$pass = LIVE_PASSWORD;
-		$host = LIVE_HOST;
+		$un   = LWP_LIVE_USERNAME;
+		$pass = LWP_LIVE_PASSWORD;
+		$host = LWP_LIVE_HOST;
 
 		// When using LocalWP live link.
 		@define( 'WP_HOME', "https://{$un}:{$pass}@{$host}" ); // Updated on Oct 25, 2022
@@ -43,10 +43,11 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 
 		$host = defined( 'HOST' ) ? HOST : '';
 
+		// You are overriding just the host.
 		if ( ! empty( $host ) ) {
 
 			// Force the URL we want (rather than what's in the DB).
-			@define( 'WP_HOME', "https://{$host}" ); // Updated on Oct 25, 2022
+			@define( 'WP_HOME', "https://{$host}" );
 			@define( 'WP_SITEURL', WP_HOME );
 
 			// Force live links to go local.
