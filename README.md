@@ -58,7 +58,7 @@ wp config set DB_HOST 'localhost:/path/to/file.sock'
 If you don't want to go this route, simply use:
 
 ```bash
-wp config set DB_HOST_NO_SOCKET true --raw
+wp config set LWP_DB_HOST_NO_SOCKET true --raw
 ```
 
 ...to bypass.
@@ -109,13 +109,13 @@ wp config set AFFWP_LICENSE "pro|personal"
 When not using multisite, you can force LocalWP to use the livelinks URL for your site by using:
 
 ```php
-define( 'LIVE', true ); // $> wp config set LIVE true --raw
-define( 'LIVE_USERNAME', 'username' ); // $> wp config set LIVE_USERNAME 'username'
-define( 'LIVE_PASSWORD', 'password' ); // $> wp config set LIVE_PASSWORD 'password'
-define( 'LIVE_HOST', 'subdomain.localsite.io' ); // $> wp config set LIVE_HOST 'example.com'
+define( 'LWP_LIVE', true ); // $> wp config set LWP_LIVE true --raw
+define( 'LWP_LIVE_USERNAME', 'username' ); // $> wp config set LWP_LIVE_USERNAME 'username'
+define( 'LWP_LIVE_PASSWORD', 'password' ); // $> wp config set LWP_LIVE_PASSWORD 'password'
+define( 'LWP_LIVE_HOST', 'subdomain.localsite.io' ); // $> wp config set LWP_LIVE_HOST 'example.com'
 ```
 
-Use `wp config set LIVE false --raw` to turn off live links mode.
+Use `wp config set LWP_LIVE false --raw` to turn off live links mode.
 
 --------------------------------------
 
