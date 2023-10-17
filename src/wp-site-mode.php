@@ -20,7 +20,7 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 // Single Site.
 } else {
 
-	// Publically (using Live Links in LocalWP).
+	// Publicly (using Live Links in LocalWP).
 	if (
 		defined( 'LWP_LIVE' ) && true === LWP_LIVE && // $> wp config set live true --raw
 		defined( 'LWP_LIVE_USERNAME' ) &&
@@ -32,22 +32,25 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 		$pass = LWP_LIVE_PASSWORD;
 		$host = LWP_LIVE_HOST;
 
+		$protocol = defined( 'PROTOCOL' ) ? PROTOCOL : 'http';
+
 		// When using LocalWP live link.
-		@define( 'WP_HOME', "https://{$un}:{$pass}@{$host}" ); // Updated on Oct 25, 2022
+		@define( 'WP_HOME', "{$protocol}://{$un}:{$pass}@{$host}" ); // Updated on Oct 25, 2022
 		@define( 'WP_SITEURL', WP_HOME );
 
-		unset( $un, $pass, $host );
+		unset( $un, $pass, $host, $protocol );
 
 	// Locally.
 	} else {
 
-		$host = defined( 'HOST' ) ? HOST : '';
+		$host     = defined( 'HOST' ) ? HOST : '';
+		$protocol = defined( 'PROTOCOL' ) ? PROTOCOL : 'http';
 
 		// You are overriding just the host.
 		if ( ! empty( $host ) ) {
 
 			// Force the URL we want (rather than what's in the DB).
-			@define( 'WP_HOME', "https://{$host}" );
+			@define( 'WP_HOME', "{$protocol}://{$host}" );
 			@define( 'WP_SITEURL', WP_HOME );
 
 			// Force live links to go local.
@@ -56,6 +59,6 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 			$_SERVER['HTTP_X_FORWARDED_HOST'] = $host;
 		}
 
-		unset( $host );
+		unset( $host, $protocol );
 	}
 }
