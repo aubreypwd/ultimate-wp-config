@@ -10,5 +10,5 @@ if (
 		false === LWP_DB_HOST_NO_SOCKET
 	)
 ) {
-	die( "If you are using LocalWP Set DB_HOST to `ini_get( 'mysqli.default_socket' )` before using WP CLI or run `wp config set LWP_DB_HOST_NO_SOCKET true --raw` to bypass this message.\n" );
+	die( "If you are using LocalWP Set `DB_HOST` to the Socket file in the Database tab for this site, or run `wp config set LWP_DB_HOST_NO_SOCKET true --raw` to bypass this message.\n" );
 }
