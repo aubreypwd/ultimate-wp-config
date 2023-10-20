@@ -35,16 +35,20 @@ require_once  __DIR__ . '/vendor/autoload.php';
 
 ### LocalWP & WP-CLI
 
-WP CLI, when not in a Site Shell, can get confusing. We discourage it out of the box.
+WP CLI w/ LocalWP can be confusing, and sometimes not work at all. This recommends you setup `DB_HOST` with a Socket file. We don't recommend you copy/paste the socket value directly into the `DB_HOST`, instead run `wp` in a Site Shell to find out what to do.
 
-Do ignore this recommendation:
+The way this does it ensures if you clone, blueprint, or import a site you don't accidentally connect to the original site's database. I also recommend you exclude `*.sock` from being exported in your Preferences.
+
+Just run `wp` to find out what to do.
+
+To ignore this recommendation:
 
 ```php
-define( 'LWP_ALLOW_EXTERNAL_CLI', true );
+define( 'LOCALWP_ALLOW_EXTERNAL_CLI', true );
 ```
 
 ```bash
-wp config set LWP_ALLOW_EXTERNAL_CLI true
+wp config set LOCALWP_ALLOW_EXTERNAL_CLI true
 ```
 
 ---------------------------------
@@ -63,7 +67,7 @@ wp config set WP_ALLOW_MULTISITE true|false --raw
 
 ---------------------------------
 
-### AffilaiteWP License
+### AffiliateWP License
 
 This is specific to use with [AffiliateWP](https://affiliatewp.com), a plugin I work on.
 
@@ -95,13 +99,13 @@ wp config set AFFWP_LICENSE "pro|personal"
 When not using multisite, you can force LocalWP to use the livelinks URL for your site by using:
 
 ```php
-define( 'LWP_LIVE', true ); // $> wp config set LWP_LIVE true --raw
-define( 'LWP_LIVE_USERNAME', 'username' ); // $> wp config set LWP_LIVE_USERNAME 'username'
-define( 'LWP_LIVE_PASSWORD', 'password' ); // $> wp config set LWP_LIVE_PASSWORD 'password'
-define( 'LWP_LIVE_HOST', 'subdomain.localsite.io' ); // $> wp config set LWP_LIVE_HOST 'example.com'
+define( 'LOCALWP_LIVE', true ); // $> wp config set LOCALWP_LIVE true --raw
+define( 'LOCALWP_LIVE_USERNAME', 'username' ); // $> wp config set LOCALWP_LIVE_USERNAME 'username'
+define( 'LOCALWP_LIVE_PASSWORD', 'password' ); // $> wp config set LOCALWP_LIVE_PASSWORD 'password'
+define( 'LOCALWP_LIVE_HOST', 'subdomain.localsite.io' ); // $> wp config set LOCALWP_LIVE_HOST 'example.com'
 ```
 
-Use `wp config set LWP_LIVE false --raw` to turn off live links mode.
+Use `wp config set LOCALWP_LIVE false --raw` to turn off live links mode.
 
 --------------------------------------
 

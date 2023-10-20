@@ -22,15 +22,15 @@ if ( defined( 'WP_ALLOW_MULTISITE' ) && true === WP_ALLOW_MULTISITE ) {
 
 	// Publicly (using Live Links in LocalWP).
 	if (
-		defined( 'LWP_LIVE' ) && true === LWP_LIVE && // $> wp config set live true --raw
-		defined( 'LWP_LIVE_USERNAME' ) &&
-		defined( 'LWP_LIVE_PASSWORD' ) &&
-		defined( 'LWP_LIVE_HOST' )
+		defined( 'LOCALWP_LIVE' ) && true === LOCALWP_LIVE && // $> wp config set live true --raw
+		defined( 'LOCALWP_LIVE_USERNAME' ) &&
+		defined( 'LOCALWP_LIVE_PASSWORD' ) &&
+		defined( 'LOCALWP_LIVE_HOST' )
 	) {
 
-		$un   = LWP_LIVE_USERNAME;
-		$pass = LWP_LIVE_PASSWORD;
-		$host = LWP_LIVE_HOST;
+		$un   = LOCALWP_LIVE_USERNAME;
+		$pass = LOCALWP_LIVE_PASSWORD;
+		$host = LOCALWP_LIVE_HOST;
 
 		$protocol = defined( 'PROTOCOL' ) ? PROTOCOL : 'http';
 
