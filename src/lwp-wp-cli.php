@@ -1,14 +1,21 @@
 <?php
 
-// Better WP-CLI Support for LocalWP.
-if (
-	file_exists( __DIR__ . '/../../../../local-xdebuginfo.php' ) && // Only LocalWP puts this here.
-	defined( 'WP_CLI' ) &&
-	! stristr( DB_HOST, '.sock' ) &&
-	(
-		! defined( 'LWP_DB_HOST_NO_SOCKET' ) ||
-		false === LWP_DB_HOST_NO_SOCKET
-	)
-) {
-	die( "If you are using LocalWP Set `DB_HOST` to the Socket file in the Database tab for this site, or run `wp config set LWP_DB_HOST_NO_SOCKET true --raw` to bypass this message.\n" );
+// You can turn this of by defining LWP_DB_HOST_NO_SOCKET to true.
+if ( ! defined( 'LWP_DB_HOST_NO_SOCKET' ) || false === LWP_DB_HOST_NO_SOCKET ) {
+
+	if (
+
+		// Only when using CLI...
+		defined( 'WP_CLI' )  && (
+
+			// Not the Site Shell..
+			! stristr( shell_exec( 'which wp' ), 'Local.app' ) &&
+
+			// And, No --socket
+			! stristr( implode( ' ', $_SERVER['argv'] ?? array() ), '--socket' )
+		)
+	) {
+		die( "Open a Site Shell to use WP CLI, using System wp can be dangerous. Use `define( 'LWP_DB_HOST_NO_SOCKET', true );` in wp-config.php to disable this message.\n" );
+	}
 }
+
