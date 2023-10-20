@@ -35,30 +35,16 @@ require_once  __DIR__ . '/vendor/autoload.php';
 
 ### LocalWP & WP-CLI
 
-To make WP-CLI work better with LocalWP, we suggest using a configuration like this:
+WP CLI, when not in a Site Shell, can get confusing. We discourage it out of the box.
+
+Do ignore this recommendation:
 
 ```php
-
-/** Database password */
-define( 'DB_PASSWORD', 'root' );
-
-/** Database hostname */
-define( 'DB_HOST', 'localhost:/Users/aubreypwd/Library/Application Support/Local/run/QTHTAm9k8/mysql/mysqld.sock' );
-
+define( 'LWP_ALLOW_EXTERNAL_CLI', true );
 ```
 
-And so when you install this, we will bark at you to set it like this.
-
-A direct link to the `.sock` file on your system will make sure WP-CLI works better. When you run WP-CLI commands you might get an error to run a command to set this:
-
 ```bash
-wp config set DB_HOST 'localhost:/path/to/file.sock'
-```
-
-If you want the barking to stop, set:
-
-```bash
-wp config set LWP_DB_HOST_NO_SOCKET true --raw
+wp config set LWP_ALLOW_EXTERNAL_CLI true
 ```
 
 ---------------------------------
